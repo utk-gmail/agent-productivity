@@ -1,0 +1,61 @@
+<apex:page standardStylesheets="true" controller="StatusChangeController" showHeader="false">
+        
+    <style>
+        .a {            
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            color: #000000;
+            border-top: 1px solid #000000;
+            padding: 5px 15px 5px 15px;
+            background: #FFFFFF;
+            margin-left:1px;
+            white-space: nowrap
+        }
+    </style>     
+    <apex:includeScript value="/support/console/29.0/integration.js"/>
+    <script type="text/javascript">
+        function testSetAgentState(state) {
+            
+            if(state == 'Online'){
+                sforce.console.chat.setAgentState(state, function(result) {
+                    if (result.success) {
+                        //log session time.
+                        logSession(state);
+                    } else {
+                        alert('Error while setting agent status to Online.'+state);
+                    }
+                });
+            }else{
+                sforce.console.chat.setAgentState('Away', function(result){
+                    if (result.success) {
+                        //log session time.
+                        logSession(state);
+                    } else {
+                        alert('Error while setting agent status to Away.'+state);
+                    }
+                });
+            }
+        }
+    </script>
+    <html>
+        <body style="background: #F8F8F8">
+            <apex:form id="form1"> 
+                <apex:actionFunction action="{!processLogSession}" name="logSession" reRender="form1">
+                    <apex:param assignTo="{!agentStatus}" value="" name="statusParam"/>
+                </apex:actionFunction>
+                
+                <table width="100%" style="margin-top:10px;">
+                    <tr>
+                        <td style="padding-left:20px;">
+                          <apex:outputLabel for="status" style="font-weight:bold;">Status</apex:outputLabel>    
+                        </td>
+                        <td>
+                          <apex:inputField id="status" value="{!currentSession.Status__c}" styleClass="a" onchange="testSetAgentState(this.value)"/>
+                        </td>
+                    </tr>
+                </table>
+            </apex:form>
+        </body>
+    </html>  
+</apex:page>

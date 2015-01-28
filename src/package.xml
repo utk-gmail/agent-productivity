@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agent Productivity</fullName>
+    <types>
+        <members>AgentLoginSessionHandler</members>
+        <members>AgentSessionLog</members>
+        <members>StatusChangeController</members>
+        <members>TestAgentLoginSessionHandler</members>
+        <members>TestStatusChangeController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>statusChange</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>AgentLoginSession</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Agent_Productivity</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Agent_Status</members>
+        <name>CustomApplicationComponent</name>
+    </types>
+    <types>
+        <members>Agent_Status_History__c.Agent_Id__c</members>
+        <members>Agent_Status_History__c.Duration__c</members>
+        <members>Agent_Status_History__c.End_Time__c</members>
+        <members>Agent_Status_History__c.Live_Agent_Session__c</members>
+        <members>Agent_Status_History__c.Start_Time__c</members>
+        <members>Agent_Status_History__c.Status__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Agent_Status_History__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Agent_Status_History__c-Agent Status History Layout</members>
+        <name>Layout</name>
+    </types>
+    <version>31.0</version>
+</Package>
